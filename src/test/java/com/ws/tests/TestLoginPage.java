@@ -5,10 +5,11 @@ import org.testng.annotations.Test;
 import com.ws.base.DriverScipt;
 import com.ws.page.HomePage;
 import com.ws.page.LoginPage;
+import com.ws.page.PasswordRecoveryPage;
 
 public class TestLoginPage extends DriverScipt{
 	
-	@Test(enabled = false)
+	@Test(priority = 1, enabled = false)
 	public void testHomePageTitle() 
 	{
 		initApplication();
@@ -19,7 +20,7 @@ public class TestLoginPage extends DriverScipt{
 		quitDriver();
 	}
 	
-	@Test(enabled = false)
+	@Test(priority = 2,enabled = false)
 	public void testLoginFunction()
 	{
 		initApplication();
@@ -39,27 +40,34 @@ public class TestLoginPage extends DriverScipt{
 		
 	}
 	
-	@Test(enabled = true)
+	@Test(priority = 3, enabled = true)
 	public void ForgotPasswordLinkPresent()
 	{
 		initApplication();
 		HomePage homepage = new HomePage();
 		homepage.clicklogin();
 		LoginPage loginpage = new LoginPage();
-		boolean ispresent = loginpage.isForgotPasswordLinkPresent();
+		boolean ispresent = loginpage.IsForgotPasswordLinkPresent();
 		System.out.println(ispresent);
 		quitDriver();
 
 	}
-	
+	@Test(priority = 4, enabled = true)
 	public void ForgotPasswordFunction()
 	{
 		initApplication();
 		HomePage homepage = new HomePage();
 		homepage.clicklogin();
 		LoginPage loginpage = new LoginPage();
+		String loginpagetitle = loginpage.getLoginPageTitle();
+		System.out.println(loginpagetitle);
+		Assert.assertTrue(loginpagetitle.contains("Login"));
 		loginpage.clickForgotPasswordLink();
-		
+		PasswordRecoveryPage PRPage = new PasswordRecoveryPage();
+	    String PRP_title = PRPage.getPasswordRecoveryPageTitle();
+	    Assert.assertTrue(PRP_title.contains("Password Recovery"));
+	    System.out.println(PRP_title);
+	    quitDriver();
 		
 	}
 

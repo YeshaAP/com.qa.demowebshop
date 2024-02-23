@@ -43,7 +43,7 @@ public class LoginPage extends DriverScipt{
 				loginbutton.click();
 			}
 			
-			public boolean isForgotPasswordLinkPresent()
+			public boolean IsForgotPasswordLinkPresent()
 			{
 				return forgotPasswordlink.isDisplayed();
 			}

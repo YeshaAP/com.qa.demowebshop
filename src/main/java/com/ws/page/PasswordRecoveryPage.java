@@ -10,11 +10,9 @@ public class PasswordRecoveryPage extends DriverScipt{
 
 	//************************************Page Elements***********************************
 	
-	@FindBy(xpath = "//input[@data-val-required='Enter your email']") WebElement recoveryEmail;
-	
-	
-	
-
+	@FindBy(xpath = "//input[@data-val-required='Enter your email']") WebElement recoveryEmailtextfield;
+	@FindBy(xpath = "//input[@name='send-email']") WebElement recoverbutton;
+		
     //***********************************Page Initialization*******************************
 	
 	public PasswordRecoveryPage()
@@ -25,4 +23,20 @@ public class PasswordRecoveryPage extends DriverScipt{
 //***************************Page Actions/Methods********************************************	
 	
 	//order doesn't matter in methods
+	
+	public void enterRecoveryEmail(String email)
+	{
+		recoveryEmailtextfield.clear();
+		recoveryEmailtextfield.sendKeys(email);
+	}
+	
+	public void clickRecoverButton()
+	{
+		recoverbutton.click();
+	}
+	
+	public String getPasswordRecoveryPageTitle()
+	{
+		return driver.getTitle();
+	}
 }
