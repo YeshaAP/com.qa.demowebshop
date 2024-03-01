@@ -34,7 +34,7 @@ public class DriverScipt {
 		}
 		catch(Exception e)
 		{
-			System.out.println("unable to load properties file, Please check");
+			System.out.println("Unable to load properties file, Please check");
 			e.printStackTrace();
 		}
 	}

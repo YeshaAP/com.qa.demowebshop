@@ -15,6 +15,7 @@ public class LoginPage extends DriverScipt{
 			@FindBy(name = "Password")WebElement passwordtextfield;
 			@FindBy(xpath = "//input[@class ='button-1 login-button']")WebElement loginbutton;
 			@FindBy(linkText = "Forgot password?")WebElement forgotPasswordlink;
+			@FindBy(xpath = "//span[text() = 'Please enter a valid email address.']")WebElement inValidEmailMsg;
 		
 	//***********************************Page Initialization*******************************
 			
@@ -52,9 +53,13 @@ public class LoginPage extends DriverScipt{
 			{
 				forgotPasswordlink.click();
 			}
-			
-			public String getLoginPageTitle()
+								
+			public String getinValidEmailErrMsg()
 			{
+				 return inValidEmailMsg.getText();
+			}
+
+			public String getLoginPageTitle() {
 				return driver.getTitle();
 			}
 

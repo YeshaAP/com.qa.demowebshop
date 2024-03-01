@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.ws.base.DriverScipt;
 
+import net.bytebuddy.asm.MemberSubstitution.FieldValue;
+
 /*
  * Title : HomePage 
  * Description  :HomePage class which contains elements and its methods
@@ -19,6 +21,8 @@ import com.ws.base.DriverScipt;
 	
 		@FindBy(xpath = "//a[@class='ico-login']")WebElement loginlink;
 		@FindBy(linkText = "Log out")WebElement logoutlink;
+		@FindBy(xpath = "(//a[contains( text(), 'Books')])[1]")WebElement booksmenu;
+		@FindBy(xpath = "(//a[contains( text(), 'Computers')])[1]")WebElement computersmenu;
 	
 	//***********************************Page Initialization*******************************
 		
@@ -29,11 +33,8 @@ import com.ws.base.DriverScipt;
 	
 	//***************************Page Actions/Methods********************************************	
 		
-		public void clickLogout() 
-		{
-			logoutlink.click();
-		}
 		
+			
 		public String getHomePageTitle()
 		{
 			return driver.getTitle();
@@ -42,6 +43,19 @@ import com.ws.base.DriverScipt;
 		public void clicklogin()
 		{
 			loginlink.click();
+		}
+		public void clickLogout() 
+		{
+			logoutlink.click();
+		}
+					
+		public void clickBooksMenu()
+		{
+			booksmenu.click();
+		}
+		public void clickComputersMenu()
+		{
+			computersmenu.click();
 		}
 
 }
